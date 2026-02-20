@@ -203,7 +203,7 @@ body {
     </div>
 
   <div class="channel-info">
-    <img src="1000082474.png" alt="Star Sports 1HD Hindi" class="channel-logo-img">
+    <img src="https://img.media.jio.com/tvpimages/5/6/301982_1749665314605_l_medium.jpg" alt="Star Sports 1HD Hindi" class="channel-logo-img">
     <div>
       <h3 style="margin:0; font-size:16px; font-weight: 700;">Star Sports 1HD Hindi</h3>
       <p style="margin:4px 0 0; font-size:12px; color:var(--cascade);">Sports • Hindi</p>
@@ -229,9 +229,11 @@ body {
 </div>
 
 <script>
+// Base64 encoded stream source
 const _0xH1 = "aHR0cHM6Ly9hbGxyb3VuZGVyc2QucGFnZXMuZGV2L2NoYW5uZWwvc3Rhci1zcG9ydHMtMS1oaW5kaQ==";
 
 window.onload = function() {
+    // Check if user has already dismissed popup this session
     if(sessionStorage.getItem("elite_access") === "true") {
         document.getElementById("popup").style.display = "none";
     }
@@ -239,8 +241,7 @@ window.onload = function() {
     const src = atob(_0xH1);
     const viewport = document.getElementById('viewport');
     
-    // Updated sandbox: removed 'allow-popups' and 'allow-top-navigation'
-    // This stops the iframe from launching ads or redirecting your page.
+    // Inject iframe with secure sandbox settings
     viewport.innerHTML = `
         <iframe 
             id="stream-player"
@@ -271,7 +272,7 @@ function sharePage() {
   }
 }
 
-// Anti-Inspect
+// Anti-Inspect (Basic protection)
 document.onkeydown = (e) => {
     if(e.keyCode == 123 || (e.ctrlKey && e.shiftKey && (e.keyCode == 73 || e.keyCode == 74)) || (e.ctrlKey && e.keyCode == 85)) return false;
 };
