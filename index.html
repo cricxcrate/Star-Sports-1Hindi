@@ -27,7 +27,7 @@ body {
   color: var(--seashell);
   display: flex;
   justify-content: center;
-  user-select: none;
+  overflow-x: hidden;
 }
 
 .app-container {
@@ -200,7 +200,10 @@ body {
   </div>
 
   <div class="video-frame" id="viewport">
+      <div style="color: white; display: flex; align-items: center; justify-content: center; height: 100%;">
+          Loading Stream...
       </div>
+  </div>
 
   <div class="channel-info">
     <img src="https://img.media.jio.com/tvpimages/5/6/301982_1749665314605_l_medium.jpg" alt="Star Sports 1HD Hindi" class="channel-logo-img">
@@ -229,13 +232,11 @@ body {
 </div>
 
 <script>
-/**
- * Stream URL updated to: https://allrounder-live.pages.dev/star/star-1-hindi
- */
+// Stream URL Base64
 const _0xH1 = "aHR0cHM6Ly9hbGxyb3VuZGVyLWxpdmUucGFnZXMuZGV2L3N0YXIvc3Rhci0xLWhpbmRp";
 
 window.onload = function() {
-    // Check if user has already dismissed popup this session
+    // Check session storage for popup
     if(sessionStorage.getItem("elite_access") === "true") {
         document.getElementById("popup").style.display = "none";
     }
@@ -243,12 +244,15 @@ window.onload = function() {
     const src = atob(_0xH1);
     const viewport = document.getElementById('viewport');
     
-    // Inject iframe with secure sandbox settings
+    /**
+     * FIX: Added allow-top-navigation and allow-modals.
+     * Some players require these to bypass the "Sandbox detected" security block.
+     */
     viewport.innerHTML = `
         <iframe 
             id="stream-player"
             src="${src}" 
-            sandbox="allow-scripts allow-same-origin allow-forms allow-presentation"
+            sandbox="allow-scripts allow-same-origin allow-forms allow-presentation allow-top-navigation allow-modals"
             allow="autoplay; encrypted-media; fullscreen" 
             allowfullscreen="true" 
             referrerpolicy="no-referrer">
@@ -281,5 +285,4 @@ document.onkeydown = (e) => {
 </script>
 
 </body>
-      </html>
-      
+</html>
