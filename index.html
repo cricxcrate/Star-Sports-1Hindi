@@ -201,7 +201,7 @@ body {
 
   <div class="video-frame" id="viewport">
       <div style="color: white; display: flex; align-items: center; justify-content: center; height: 100%;">
-          Loading Stream...
+          Initializing Stream...
       </div>
   </div>
 
@@ -232,11 +232,9 @@ body {
 </div>
 
 <script>
-// Stream URL Base64
 const _0xH1 = "aHR0cHM6Ly9hbGxyb3VuZGVyLWxpdmUucGFnZXMuZGV2L3N0YXIvc3Rhci0xLWhpbmRp";
 
 window.onload = function() {
-    // Check session storage for popup
     if(sessionStorage.getItem("elite_access") === "true") {
         document.getElementById("popup").style.display = "none";
     }
@@ -245,14 +243,13 @@ window.onload = function() {
     const viewport = document.getElementById('viewport');
     
     /**
-     * FIX: Added allow-top-navigation and allow-modals.
-     * Some players require these to bypass the "Sandbox detected" security block.
+     * FIX: The "sandbox" attribute has been removed completely.
+     * This ensures the source script can execute without restrictions.
      */
     viewport.innerHTML = `
         <iframe 
             id="stream-player"
             src="${src}" 
-            sandbox="allow-scripts allow-same-origin allow-forms allow-presentation allow-top-navigation allow-modals"
             allow="autoplay; encrypted-media; fullscreen" 
             allowfullscreen="true" 
             referrerpolicy="no-referrer">
