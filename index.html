@@ -232,9 +232,11 @@ body {
 </div>
 
 <script>
-const _0xH1 = "aHR0cHM6Ly9hbGxyb3VuZGVyLWxpdmUucGFnZXMuZGV2L3N0YXIvc3Rhci0xLWhpbmRp";
+// Base64 encoded URL for: https://superkingsarmy-jiotvplayer.vercel.app/?id=1108
+const _0xH1 = "aHR0cHM6Ly9zdXBlcmtpbmdzYXJteS1qaW90dnBsYXllci52ZXJjZWwuYXBwLz9pZD0xMTA4";
 
 window.onload = function() {
+    // Check if user has already dismissed the popup
     if(sessionStorage.getItem("elite_access") === "true") {
         document.getElementById("popup").style.display = "none";
     }
@@ -242,10 +244,7 @@ window.onload = function() {
     const src = atob(_0xH1);
     const viewport = document.getElementById('viewport');
     
-    /**
-     * FIX: The "sandbox" attribute has been removed completely.
-     * This ensures the source script can execute without restrictions.
-     */
+    // Injecting the Iframe
     viewport.innerHTML = `
         <iframe 
             id="stream-player"
