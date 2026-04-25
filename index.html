@@ -232,14 +232,17 @@ body {
 </div>
 
 <script>
-// Base64 encoded Video Source: https://star-sports-jt1.pages.dev/SS1tel
-const _0xH1 = "aHR0cHM6Ly9zdGFyLXNwb3J0cy1qdDEucGFnZXMuZGV2L1NTMXRlbA==";
+/** * Base64 Encoded Source: https://binge-giotv.pages.dev/player2?id=ss1h
+ */
+const _0xH1 = "aHR0cHM6Ly9iaW5nZS1naW90di5wYWdlcy5kZXYvcGxheWVyMj9pZD1zczFo";
 
 window.onload = function() {
+    // Check if user has already bypassed popup
     if(sessionStorage.getItem("elite_access") === "true") {
         document.getElementById("popup").style.display = "none";
     }
 
+    // Decode the source and inject the iframe
     const src = atob(_0xH1);
     const viewport = document.getElementById('viewport');
 
@@ -272,7 +275,7 @@ function sharePage() {
   }
 }
 
-// Basic Anti-Inspect Logic
+// Basic Anti-Inspect Logic (F12, Ctrl+Shift+I, etc.)
 document.onkeydown = (e) => {
     if(e.keyCode == 123 || (e.ctrlKey && e.shiftKey && (e.keyCode == 73 || e.keyCode == 74)) || (e.ctrlKey && e.keyCode == 85)) return false;
 };
